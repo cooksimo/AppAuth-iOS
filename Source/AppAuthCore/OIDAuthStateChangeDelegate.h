@@ -34,6 +34,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)didChangeState:(OIDAuthState *)state;
 
+- (void)willStartTokenRefresh:(nullable NSString *)refreshToken;
+
+- (void)didCompleteTokenRefreshWithAccessToken:(nullable NSString *)accessToken refreshToken:(nullable NSString *)refreshToken;
+
 @end
 
 NS_ASSUME_NONNULL_END
