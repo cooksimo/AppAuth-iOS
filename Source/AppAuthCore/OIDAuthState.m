@@ -510,6 +510,8 @@ static const NSUInteger kExpiryTimeTolerance = 60;
   // refresh the tokens
   OIDTokenRequest *tokenRefreshRequest =
       [self tokenRefreshRequestWithAdditionalParameters:additionalParameters];
+    
+    [self.stateChangeDelegate willStartTokenRefresh:tokenRefreshRequest.refreshToken];
   [OIDAuthorizationService performTokenRequest:tokenRefreshRequest
                  originalAuthorizationResponse:_lastAuthorizationResponse
                                       callback:^(OIDTokenResponse *_Nullable response,
@@ -518,6 +520,8 @@ static const NSUInteger kExpiryTimeTolerance = 60;
     if (response) {
       self->_needsTokenRefresh = NO;
       [self updateWithTokenResponse:response error:nil];
+        [self.stateChangeDelegate didCompleteTokenRefreshWithAccessToken:response.accessToken refreshToken:response.refreshToken];
+        
     } else {
       if (error.domain == OIDOAuthTokenErrorDomain) {
         self->_needsTokenRefresh = NO;
