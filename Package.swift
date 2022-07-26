@@ -71,7 +71,7 @@ let package = Package(
         .target(
             name: "AppAuthTV",
             dependencies: ["AppAuthCore"],
-            path: "Source/AppAuthTV",
+            path: "Source/AppAuthTV"
         ),
         .testTarget(
             name: "AppAuthCoreTests",
