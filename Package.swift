@@ -46,13 +46,15 @@ let package = Package(
     targets: [
         .target(
             name: "AppAuthCore",
-            path: "Source/AppAuthCore"
+            path: "Source/AppAuthCore",
+            publicHeadersPath: "."
         ),
         .target(
             name: "AppAuth",
             dependencies: ["AppAuthCore"],
             path: "Source/AppAuth",
             sources: ["iOS", "macOS"],
+            publicHeadersPath: ".",
             cSettings: [
                 .headerSearchPath("iOS"),
                 .headerSearchPath("macOS"),
@@ -64,6 +66,7 @@ let package = Package(
             dependencies: ["AppAuthCore"],
             path: "Source/AppAuthEnterpriseUserAgent",
             sources: ["iOS"],
+            publicHeadersPath: ".",
             cSettings: [
                 .headerSearchPath("iOS"),
             ]
@@ -71,7 +74,8 @@ let package = Package(
         .target(
             name: "AppAuthTV",
             dependencies: ["AppAuthCore"],
-            path: "Source/AppAuthTV"
+            path: "Source/AppAuthTV",
+            publicHeadersPath: "."
         ),
         .testTarget(
             name: "AppAuthCoreTests",
