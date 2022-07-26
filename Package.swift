@@ -47,7 +47,7 @@ let package = Package(
         .target(
             name: "AppAuthCore",
             path: "Source/AppAuthCore",
-            publicHeadersPath: ""
+            publicHeadersPath: "Source/AppAuthCore"
         ),
         .target(
             name: "AppAuth",
