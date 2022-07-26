@@ -46,7 +46,7 @@ let package = Package(
     targets: [
         .target(
             name: "AppAuthCore",
-            path: "Source/AppAuthCore",
+            path: "Source/AppAuthCore"
         ),
         .target(
             name: "AppAuth",
